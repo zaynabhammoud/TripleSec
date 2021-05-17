@@ -166,7 +166,7 @@ predict.tree<-function(final.tree,y.new,X.new){
 					if((!is.na(tree[t,2]))){if(X.new[i,4]<=tree[t,2]){class[i]=0;flag=1;}};
 					if((!is.na(tree[t,5]))){if(X.new[i,4]>=tree[t,5]){class[i]=1;flag=1;}};
 				}
-				t<-t+1;
+				t=t+1;
 			}   
 		}
 	result<-cbind(y.new,class);
