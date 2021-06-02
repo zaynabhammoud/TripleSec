@@ -8,7 +8,7 @@ It's goal is to categorize patients with neurological symptoms into three
 categories. These three categories represent the risk of the patient progressing 
 to Alzheimer's disease, dependent on the given biomarker values.
 The three catergories, high risk, indiscriminate risk and low risk are defined by 
-cutoff values of the biomarkers. These cutoff values are caluclated
+cutoff values of the biomarkers. These cutoff values are calculated
 dependent on user defined risk-threshold and ratio of patients.
 
 ![alt text](https://github.com/zaynabhammoud/TripleSec/blob/KAP/img/principle.png "principle")
