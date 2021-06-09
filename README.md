@@ -12,7 +12,7 @@ dependent on user defined risk-threshold and ratio of patients.
 The user defined risk-thresholds, pHigh and pLow, are given to the algorithm. They present the percentage of patients which are supposed to have a certain value >=x/ <=x to determin the cutoff values.
 ![alt text](https://github.com/zaynabhammoud/TripleSec/blob/KAP/img/principle.png "principle")
 
-This calculation is repeated for each biomarker given from the user, filtering out the patients which have been categorised into high or low risk. The reason the algorithm focuses on the indiscriminate category is to minimize this which each step and reducing the amount of patients, the algorithm categorizes as indiscriminate ("unknown risk").
+This calculation is repeated for each biomarker given from the user, filtering out the patients which have been categorized into high or low risk. The reason the algorithm focuses on the indiscriminate category is to minimize this which each step and reducing the amount of patients, the algorithm categorizes as indiscriminate ("unknown risk").
 
 ![alt text](https://github.com/zaynabhammoud/TripleSec/blob/KAP/img/repeat.png "repeat")
 
