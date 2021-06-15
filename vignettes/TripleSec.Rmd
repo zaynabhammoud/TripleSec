@@ -1,0 +1,20 @@
+---
+title: "TripleSec"
+author:
+  -name: Samantha Cramer
+  email: samantha.cramer@protonmail.com
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{TripleSec Vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+```
+
+## Introduction
+In the day and age, where more data per patient arises and has to be evaluated, clinical support algorithms (CDS) are becoming more and more relevant for health care providers, providing them with a helping tool for sifting through data and suggesting further steps of treatment.
+This package contains functions, creating a clinical support algorithm for neurological disease. 
