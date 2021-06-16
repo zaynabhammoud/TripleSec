@@ -37,7 +37,8 @@ The algorithm is made up of three functions:
 
 | Function |Description|
 | --------------- |-----------|
-|`CV.one.prune.tree(inputData,inputParam,seq,pHigh,pLow)`|Splits the given data and data parameters into training and test data.The training data is used to calculate the cutoff values (via function design tree). Afterwards the test data and parameters,as well as the calculated cutoff values are used to predict the risk of each patient (via function predict tree).|
-|`design.tree(inputData, inputParam,seq,pHigh, pLow, minNum,repeats)`|Function used to calculate the cutoff values for low-risk and high risk groups.The values correspond to the risk-threshold values given by the user, pHigh and pLow.Default values: seq = c(1, 2, 3), minNum = 5, repeats = 100|
-|`predictTree(cutoffValues, inputData)`| This function calls the recursive function predictTreeRec|
-|`predictTreeRec(cutoffValues, inputData)`| This recursive function calculates the risk of conversion to alzheimers for each given parameter (1 = high risk, 0 = low risk)|
+|`pruneTree(inputData, pHigh, pLow)`|This function splits the given data table into training and test data. Then calls calCutOff for the training data and predictTree with the calculated cutOff values of calCutOff and the test data.|
+|`calCutOff(inputData, pHigh, pLow)`|This function calls the recursive function calCutOffRec.|
+|`calCutOffRec(inputData, pHigh, pLow)`|Function used to calculate the cutoff values for low-risk and high risk groups.The values correspond to the risk-threshold values given by the user, pHigh and pLow.Default values: seq = c(1, 2, 3), minNum = 5, repeats = 100|
+|`predictTree(cutoffValues, inputData)`| This function calls the recursive function predictTreeRec.|
+|`predictTreeRec(cutoffValues, inputData)`| This recursive function calculates the cutoff value for each parameter dependent upon the patient ratio, it also verifies if the model is effective (cut_high > cut_low).|
