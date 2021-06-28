@@ -32,7 +32,6 @@ inputData <- data.frame( #creating inputDataAll, table containing all informatio
   hippoVolume = predictAD$hippoVolume,# hippoVolume = data for the volume of the hippocampal volume (training data)
   adasCog = predictAD$adasCog # adasCog = data for neuropsychology by Alzheimer's Disease Assessment Scale-cognitive subscale (ADAS-cog) (training data)
 )
-
 pHigh <- 0.8 #create pHigh
 pLow <- 0.2 #create pLow
 

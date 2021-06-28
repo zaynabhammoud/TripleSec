@@ -6,33 +6,72 @@
 #' @param pHigh risk-threshold, defined by the user (should be a percentage value!)
 #' @param pLow risk-threshold, defined by the user (should be a percentage value!)
 #'
-#' @return fit, a table with the prediction of each patient to convert
+#' @return result, a variable with a link to the average cutoff values for each feature and a table data with the patients and feature and their risk assesment
 #' @export
 #' @examples
 
 pruneTree <-
   function(inputData, pHigh, pLow) {
+    # n equals the amount/length of data given; number of patients
+    n = nrow(inputData)
 
-    n = nrow(inputData) # n equals the amount/length of data given; number of patients
+    #create variable effective is declared equaling True
+    effective = TRUE
 
-    effective = TRUE #create variable effective is declared equaling True
-    result <- NULL #create variable result, which later retains the prediction of the patient conversion risk
+    #create empty cutoff table with two rows (cutHigh and cutLow), one column for each feature
+    cutOff <- matrix(0L, nrow = 2, ncol = ncol(inputData) - 2)
+    #name columns (feature names)
+    colnames(cutOff) <- colnames(inputData)[3:ncol(inputData)]
+    #name rows (cut_high, cut_low)
+    rownames(cutOff) <- c("cut_high", "cut_low")
 
-    fit <- NULL #create variable fit, which later retains a link to the calculated cutoff value matrix and the effectiveness of the model
+    #create variable result, which later retains the prediction of the patient conversion risk
+    result <- NULL
 
-    for (k in 1:n){ # for-loop enabling the division of data
-      dataTrain <- as.data.frame(inputData[-k,]) #data is divided into training data (all rows except row k)...
-      dataTest <- inputData[k,-2] # ... and testing data (only row k)
+    #create data
+    data <- NULL
+    #create link between result and data
+    result$data <- data
+    #create link beween result and cutOff table
+    result$cutOff <- cutOff
 
-      fit <- calCutOff(dataTrain, pHigh, pLow) #calculate cutOff values and effectiveness
+    #create variable fit, which later retains a link to the calculated cutoff value matrix and the effectiveness of the model
+    fit <- NULL
 
-      if((fit$effective)){ #if effective is true, cut_high > cut_low
-        result <- rbind(result, predictTree(fit$cutOff, dataTest)) #combines the previous patient predictions with newly calculated one
+    #create link between fit and cutoff matrix
+    fit$cutOff <- cutOff
+
+    #create variable values
+    values <- NULL
+
+    # for-loop enabling the division of data
+    for (k in 1:n){
+      #data is divided into training data (all rows except row k)...
+      dataTrain <- as.data.frame(inputData[-k,])
+      # ... and testing data (only row k)
+      dataTest <- inputData[k,-2]
+
+
+      #calculate cutOff values and effectivenes
+      values <- calCutOff(dataTrain, pHigh, pLow)
+
+      #added cutOff values of each for loop
+      fit$cutOff <- as.matrix(fit$cutOff + values$cutOff)
+
+      #if effective is true, cut_high > cut_low
+      if((values$effective)){
+        #combines the previous patient predictions with newly calculated one
+        result$data <- rbind(result$data, predictTree(values$cutOff, dataTest))
       }else{
+        #if there is an overlap, print problem - emercency solution
         print("problem")
       }
 
     }
+    #create a link between result and the calculated average of cut_high and cut_low values
+    result$cutOff <- fit$cutOff / n
+
+    #return result with a link to the average cutoff values for each feature, as well as the data with each patient and feature risk assesment
     return(result)
   }
 

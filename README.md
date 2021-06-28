@@ -38,7 +38,6 @@ The algorithm is made up of three functions:
 | Function |Description|
 | --------------- |-----------|
 |`pruneTree(inputData, pHigh, pLow)`|This function splits the given data table into training and test data. Then calls calCutOff for the training data and predictTree with the calculated cutOff values of calCutOff and the test data.|
-|`calCutOff(inputData, pHigh, pLow)`|This function calls the recursive function calCutOffRec.|
-|`calCutOffRec(inputData, pHigh, pLow)`|Function used to calculate the cutoff values for low-risk and high risk groups.The values correspond to the risk-threshold values given by the user, pHigh and pLow.Default values: seq = c(1, 2, 3), minNum = 5, repeats = 100|
-|`predictTree(cutoffValues, inputData)`| This function calls the recursive function predictTreeRec.|
+|`calCutOff(inputData, pHigh, pLow)`|calCutOff is the function used to calculate the cutoff values for low-risk and high-risk groups. The values are calculated by the proportion between converters with a value and all patients having this certain value corresponding with the given pHigh and pLow values. For each feature cutoff calculation all patients that have not been categorized into the high or low risk categories will be used.|
+|`predictTree(cutoffValues, inputData)`| This function calls the recursive function predictTreeRec. The function returns a variable with a link to a patient data table containing their risk assesments and a link to the average cutoff value matrix.|
 |`predictTreeRec(cutoffValues, inputData)`| This recursive function calculates the cutoff value for each parameter dependent upon the patient ratio, it also verifies if the model is effective (cut_high > cut_low).|
