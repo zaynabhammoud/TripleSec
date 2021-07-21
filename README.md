@@ -30,9 +30,9 @@ a column for the prediction as well the accuracy and the effectiveness.
 
 ## Available functions
 The algorithm is made up of three functions: 
-[CV.one.prune.tree](https://github.com/zaynabhammoud/TripleSec/blob/KAP/R/Code_CV_one_prune_tree.R) , 
-[design.tree](https://github.com/zaynabhammoud/TripleSec/blob/KAP/R/Code_design_tree.R) ,
-[predict.tree](Code_predict_tree.R)
+[pruneTree](https://github.com/zaynabhammoud/TripleSec/blob/KAP/R/pruneTree.R) , 
+[calCutOff](https://github.com/zaynabhammoud/TripleSec/blob/KAP/R/calCutOff.R) ,
+[predictTree](https://github.com/zaynabhammoud/TripleSec/blob/KAP/R/predictTree.R)
 
 
 | Function |Description|
