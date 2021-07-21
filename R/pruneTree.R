@@ -6,7 +6,7 @@
 #' @param pHigh risk-threshold, defined by the user (should be a percentage value!)
 #' @param pLow risk-threshold, defined by the user (should be a percentage value!)
 #'
-#' @return result, a variable with a link to the average cutoff values for each feature and a table data with the patients and feature and their risk assesment
+#' @return result, a variable with a link to the average cutoff values for each feature and a table data with the patients and feature and their risk assessment
 
 
 pruneTree <-
