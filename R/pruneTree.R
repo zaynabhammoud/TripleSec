@@ -7,8 +7,7 @@
 #' @param pLow risk-threshold, defined by the user (should be a percentage value!)
 #'
 #' @return result, a variable with a link to the average cutoff values for each feature and a table data with the patients and feature and their risk assesment
-#' @export
-#' @examples
+
 
 pruneTree <-
   function(inputData, pHigh, pLow) {
@@ -57,7 +56,7 @@ pruneTree <-
 
       #added cutOff values of each for loop
       fit$cutOff <- as.matrix(fit$cutOff + values$cutOff)
-
+      #print(fit$cutOff)
       #if effective is true, cut_high > cut_low
       if((values$effective)){
         #combines the previous patient predictions with newly calculated one

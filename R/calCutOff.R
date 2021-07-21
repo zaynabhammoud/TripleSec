@@ -11,9 +11,7 @@
 #' @param pLow risk-threshold, defined by the user (type: double, value between 0 and 1)
 #'
 #' @return fit, a variable which contains links to the calculated cutOff table, filtered data and effectivness of the cutOff values
-#' @export
-#'
-#' @examples
+
 calCutOff <- function(inputData, pHigh, pLow){
 
   #create variable featureCount which contains the amount of features given (all columns minus the ID and conversion column)
@@ -36,16 +34,19 @@ calCutOff <- function(inputData, pHigh, pLow){
   effective <- TRUE
 
   for(i in 1:featureCount){
-
     #calculate the maximum feature value
     valueMax = max(data[,3])
     #calculate 5% of this max value as decrease steps
     dec = valueMax * 0.05
+    #add dec once before the loop
+    valueMax = valueMax + dec
 
     #calculate the minimum feature value
     valueMin = min(data[,3])
     #calculate 5% of this min value as increase steps
     inc = valueMin * 0.05
+    #subtract inc once before the loop
+    valueMin = min(data[,3]) - inc
 
     #portion of converters with feature-value valueMax and all patients with feature-value valueMax, currently 100%
     portionMaxPat = 1
@@ -55,14 +56,14 @@ calCutOff <- function(inputData, pHigh, pLow){
 
     #while loop, decreasing the value of valueMax until the portion of converters divided by all patients having the value is less than pHigh and valueMax is still higher than valueMin
     while(portionMaxPat >= pHigh & valueMax > valueMin){
+      #decrease valueMax
+      valueMax <- valueMax - dec
       #calculate the amount of patients who convert to Alzheimers and have the value valueMax or higher
       conWithValue <- nrow(data[which(data$conversion == TRUE & data[,3] >= valueMax),])
       #calculates the amount of patients that have the value valueMax or higher
       allWithValue <- nrow(data[which(data[,3] >= valueMax),])
       #recalculates the portion of converters with feature-value valueMax and all patients with feature-value valueMax
       portionMaxPat <- conWithValue / allWithValue
-      #decrease valueMax
-      valueMax <- valueMax - dec
     }
 
     #enter the calculated cutoff_high value into the feature column and first row
@@ -70,15 +71,17 @@ calCutOff <- function(inputData, pHigh, pLow){
 
     #while loop, increasing the value of valueMin until the portion of converters divided by all patients having the value is higher than pLow and valueMin is still smaller than the maximum value in the column
     while(portionMinPat <= pLow & max(data[,3]) > valueMin){
+      #increase valueMin
+      valueMin <- valueMin + inc
       #calculate the amount of patients who convert to Alzheimers and have the value valueMin or lower
       conWithValue <- nrow(data[which(data$conversion == TRUE & data[,3] <= valueMin),])
-      #calcluates the amount of patients that have the value valueMin or lower
+      #calculates the amount of patients that have the value valueMin or lower
       allWithValue <- nrow(data[which(data[,3] <= valueMin),])
       #recalculates the portion of converters with feature-value valueMin and all patients with feature-value valueMin
       portionMinPat <- conWithValue / allWithValue
-      #increase valueMin
-      valueMin <- valueMin + inc
+
     }
+
 
     #enter the calculated cutoff_low value into the feature column and second row
     cutOff[2, i] = valueMin
@@ -90,6 +93,7 @@ calCutOff <- function(inputData, pHigh, pLow){
 
     #check effectiveness of cutoff values, is valueMin smaller than valueMax
     effective <- valueMin < valueMax
+
   }
   #create links between fit and ...
   # ...cutOff table
