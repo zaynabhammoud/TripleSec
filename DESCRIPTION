@@ -4,17 +4,8 @@ Title: The Triple Sec algorithm (AD)
 Version: 0.1.0
 Author: Zaynab Hammoud <zaynabhassanhammoud@gmail.com>, Samantha Cramer <samantha.cramer@protonmail.de>
 Maintainer: The package maintainer <yourself@somewhere.net>
-Description: The Triple Sec Algorithm is a clinical support algorithm for risk assessment of Alzheimers disease.
-It's goal is to categorize patients with neurological symptoms into three 
-categories. These three categories, high risk, low risk and indiscriminate, represent the risk of the patient progressing to Alzheimer's disease, dependent on the given biomarker values.
-The categories are defined by cutoff values of the biomarkers. These cutoff values are calculated
-dependent on user defined risk-threshold and ratio of patients.
-The algorithm is made up of three functions: CV.one.prune.tree, design.tree and predictTree.
-The data, data parameters as well as the risk-threshold are given to CV.one.prune.tree. 
-This function creates a table with all data and splits this in half, using the first half of the data to calculate the cutoff values, via 
-design.tree and using the second half of the data to test the cutoff values via the function predict.tree.
-Once predictTree has returned the predictions for the data given, CV.one.prune.tree returns a table with the predicted data to the user including
-a column for the prediction as well the accuracy and the effectiveness.
+Description: The Triple Sec Algorithm is a clinical support algorithm for risk assessment of Alzheimers disease.It's goal is to categorize patients with neurological symptoms into three categories. These three categories, high risk, low risk and indiscriminate, represent the risk of the patient progressing to Alzheimer's disease, dependent on the given biomarker values. The categories are defined by cutoff values of the biomarkers. These cutoff values are calculated dependent on user defined risk-threshold and ratio of patients. The algorithm is made up of three functions: CV.one.prune.tree, design.tree and predictTree. The data, data parameters as well as the risk-threshold are given to CV.one.prune.tree. This function creates a table with all data and splits this in half, using the first half of the data to calculate the cutoff values, via design.tree and using the second half of the data to test the cutoff values via the function predict.tree. Once predictTree has returned the predictions for the data given, CV.one.prune.tree returns a table with the predicted data to the user including a column for the prediction as well the accuracy and the effectiveness.
 License: GPL (>=2)
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 7.1.1
