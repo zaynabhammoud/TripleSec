@@ -5,17 +5,16 @@ author:
   email: samantha.cramer@protonmail.com
   affiliation: University of Augsburg
 date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
+output: pdf_document
 vignette: >
-  %\VignetteIndexEntry{TripleSec Vignette}
+  %\VignetteIndexEntry{TripleSec PDF Vignette}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
-
-```{r, include=FALSE}
+  
+  ```{r, include=FALSE}
 knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
 ```
-
 ## Introduction
 In the day and age, where more data per patient arises and has to be evaluated, clinical support algorithms (CDS) are becoming more and more relevant for health care providers, providing them with a helping tool for sifting through data and suggesting further steps of treatment. The Triple Sec Algorithm is a clinical support algorithm for risk assessment of Alzheimers disease. It's goal is to categorize patients with neurological symptoms into three categories. These three categories, high risk, low risk and indiscriminate, represent the risk of the patient progressing to Alzheimer's disease, dependent on the given biomarker values. The categories are defined by cutoff values of the biomarkers. These cutoff values are calculated dependent on user defined risk-threshold and ratio of patients.
 

@@ -44,7 +44,7 @@ The algorithm is made up of three functions:
 | --------------- |-----------|
 |`pruneTree(inputData, pHigh, pLow)`|This function splits the given data table into training and test data. Then calls calCutOff for the training data and predictTree with the calculated cutOff values of calCutOff and the test data.|
 |`calCutOff(inputData, pHigh, pLow)`|This function is used to calculate the cutoff values for low-risk and high-risk groups. <br/>The values are calculated by the proportion between converters with a value and all patients having this certain value corresponding with the given pHigh and pLow values. For each feature cutoff calculation all patients that have not been categorized into the high or low risk categories will be used.|
-|`predictTree(cutoffValues, inputData)`| This function calls the recursive function predictTreeRec. The function returns a variable with a link to a patient data table containing their risk assesments and a link to the average cutoff value matrix.|
+|`predictTree(cutoffValues, inputData)`| This function calls the recursive function predictTreeRec. The function returns a variable with a link to a patient data table containing their risk assessments and a link to the average cutoff value matrix.|
 |`predictTreeRec(cutoffValues, inputData)`| This recursive function calculates the cutoff value for each parameter dependent upon the patient ratio, it also verifies if the model is effective (cut_high > cut_low).|
 |`prepareData(data, firstFeature, featureList)`| prepareData is a function to transfer the transform the given data into a data frame which contains only the information needed for the Triple Sec algorithm.|
 
