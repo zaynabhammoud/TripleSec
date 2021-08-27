@@ -1,6 +1,5 @@
 #' prepareData
-#' prepare Data is a function to transfer the given data into a data frame which contains only the information
-#' needed for the Triple Sec algorithm.
+#' This function transforms the given data into a data frame containing only the columns necessary for the TripleSec algorithm, therefor for the risk assessment.
 #'
 #' @param data the data table with patients and all available data
 #' @param firstFeature the first Feature which should be set

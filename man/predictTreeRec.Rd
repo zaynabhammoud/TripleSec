@@ -3,8 +3,9 @@
 \name{predictTreeRec}
 \alias{predictTreeRec}
 \title{predictTreeRec
-This recursive function calculates the cutoff value for each parameter dependent
-upon the patient ratio, it also verifies if the model is effective (cut_high > cut_low).}
+This recursive function calculates the cutoff value for each parameter
+dependent upon the patient ratio, it also verifies if the model is effective
+(cut_high > cut_low).}
 \usage{
 predictTreeRec(cutOff, inputData)
 }
@@ -18,6 +19,7 @@ result, variable result with its links to the cutOff matrix and predicted patien
 }
 \description{
 predictTreeRec
-This recursive function calculates the cutoff value for each parameter dependent
-upon the patient ratio, it also verifies if the model is effective (cut_high > cut_low).
+This recursive function calculates the cutoff value for each parameter
+dependent upon the patient ratio, it also verifies if the model is effective
+(cut_high > cut_low).
 }

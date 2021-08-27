@@ -1,6 +1,10 @@
 #' pruneTree
-#' pruneTree splits the given data table into training and test data. Then calls calCutOff for the training data
-#' and predictTree with the calculated cutOff values of calCutOff and the test data.
+#' This function divides the given input data frame into training and test data.
+#' It calls the function \code{\link{calCutOff}} for the training data, which
+#' returns a matrix containing the calculated cut off values. Using this matrix
+#' and the test data, pruneTree then calls \code{\link{predictTree}} for the
+#' test data. \code{\link{predictTree}} returns the risk assessment for the test
+#' data to pruneTree.
 #'
 #' @param inputData input data table, given by the user (shoud be a data frame)
 #' @param pHigh risk-threshold, defined by the user (should be a percentage value!)

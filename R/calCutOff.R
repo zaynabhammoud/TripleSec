@@ -1,10 +1,11 @@
 #' calCutOff
 #'
-#' calCutOff is the function used to calculate the cutoff values for low-risk and high-risk groups.
-#' The values are calculated by the proportion between converters with a value and all patients having
-#' this certain value corresponding with the given pHigh and pLow values. For each feature cutoff
-#' calculation all patients that have not been categorized into the high or low risk categories will
-#' be used.
+#' This function is used to calculate the cut off values for low-risk and
+#' high-risk groups. The values are calculated by the proportion between
+#' converters with a value and all patients having this certain value
+#' corresponding with the given pHigh and pLow values. For each feature cutoff
+#' calculation all patients that have not been categorized into the high or low
+#' risk categories will be used.
 #'
 #' @param inputData input data given by the user (type: data.frame)
 #' @param pHigh risk-threshold, defined by the user (type: double, value between 0 and 1)

@@ -1,7 +1,7 @@
 #' predictTree
-#' This function predicts the risk of a patient conversion to alzheimers, based
-#' on the user given data/parameters and previously calculated cutoff values (calculated in design tree).
-#'
+#' This function calls the recursive function predictTreeRec. The function
+#' returns a variable with a link to a patient data table containing their risk
+#' assessments and a link to the average cutoff value matrix.
 #'
 #'@param cutOff the calculated cutOff values for each parameter (type: matrix)
 #'@param inputData the inputData / patient, that the previously calculated cutOff values are tested on (type: matrix)
@@ -19,8 +19,9 @@ predictTree <- function(cutOff, inputData) {
 }
 
 #' predictTreeRec
-#' This recursive function calculates the cutoff value for each parameter dependent
-#' upon the patient ratio, it also verifies if the model is effective (cut_high > cut_low).
+#' This recursive function calculates the cutoff value for each parameter
+#' dependent upon the patient ratio, it also verifies if the model is effective
+#' (cut_high > cut_low).
 #'
 #' @param cutOff the calculated cutOff values for each parameter (type: matrix)
 #' @param inputData the inputData / patient, that the previously calculated cutOff values are tested on (type: matrix)

@@ -3,8 +3,9 @@
 \name{predictTree}
 \alias{predictTree}
 \title{predictTree
-This function predicts the risk of a patient conversion to alzheimers, based
-on the user given data/parameters and previously calculated cutoff values (calculated in design tree).}
+This function calls the recursive function predictTreeRec. The function
+returns a variable with a link to a patient data table containing their risk
+assessments and a link to the average cutoff value matrix.}
 \usage{
 predictTree(cutOff, inputData)
 }
@@ -18,6 +19,7 @@ result, variable result with its links to the cutOff matrix and predicted patien
 }
 \description{
 predictTree
-This function predicts the risk of a patient conversion to alzheimers, based
-on the user given data/parameters and previously calculated cutoff values (calculated in design tree).
+This function calls the recursive function predictTreeRec. The function
+returns a variable with a link to a patient data table containing their risk
+assessments and a link to the average cutoff value matrix.
 }

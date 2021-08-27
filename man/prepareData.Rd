@@ -3,8 +3,7 @@
 \name{prepareData}
 \alias{prepareData}
 \title{prepareData
-prepare Data is a function to transfer the given data into a data frame which contains only the information
-needed for the Triple Sec algorithm.}
+This function transforms the given data into a data frame containing only the columns necessary for the TripleSec algorithm, therefor for the risk assessment.}
 \usage{
 prepareData(data, firstFeature, featureList)
 }
@@ -20,6 +19,5 @@ inputData, data table including only all relevant information for the Triple Sec
 }
 \description{
 prepareData
-prepare Data is a function to transfer the given data into a data frame which contains only the information
-needed for the Triple Sec algorithm.
+This function transforms the given data into a data frame containing only the columns necessary for the TripleSec algorithm, therefor for the risk assessment.
 }
