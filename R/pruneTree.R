@@ -1,4 +1,3 @@
-#' pruneTree
 #' This function divides the given input data frame into training and test data.
 #' It calls the function \code{\link{calCutOff}} for the training data, which
 #' returns a matrix containing the calculated cut off values. Using this matrix
@@ -11,8 +10,7 @@
 #' @param pLow risk-threshold, defined by the user (should be a percentage value!)
 #'
 #' @return result, a variable with a link to the average cutoff values for each feature and a table data with the patients and feature and their risk assessment
-
-
+#' @export
 pruneTree <-
   function(inputData, pHigh, pLow) {
     # n equals the amount/length of data given; number of patients

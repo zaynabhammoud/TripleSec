@@ -1,5 +1,3 @@
-#' calCutOff
-#'
 #' This function is used to calculate the cut off values for low-risk and
 #' high-risk groups. The values are calculated by the proportion between
 #' converters with a value and all patients having this certain value
@@ -12,6 +10,7 @@
 #' @param pLow risk-threshold, defined by the user (type: double, value between 0 and 1)
 #'
 #' @return fit, a variable which contains links to the calculated cutOff table, filtered data and effectiveness of the cutOff values
+#' @export
 
 calCutOff <- function(inputData, pHigh, pLow){
 

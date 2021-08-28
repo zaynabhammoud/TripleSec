@@ -2,8 +2,7 @@
 % Please edit documentation in R/predictTree.R
 \name{predictTree}
 \alias{predictTree}
-\title{predictTree
-This function calls the recursive function predictTreeRec. The function
+\title{This function calls the recursive function predictTreeRec. The function
 returns a variable with a link to a patient data table containing their risk
 assessments and a link to the average cutoff value matrix.}
 \usage{
@@ -18,7 +17,6 @@ predictTree(cutOff, inputData)
 result, variable result with its links to the cutOff matrix and predicted patient information
 }
 \description{
-predictTree
 This function calls the recursive function predictTreeRec. The function
 returns a variable with a link to a patient data table containing their risk
 assessments and a link to the average cutoff value matrix.

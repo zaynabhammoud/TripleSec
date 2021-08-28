@@ -1,4 +1,3 @@
-#' predictTree
 #' This function calls the recursive function predictTreeRec. The function
 #' returns a variable with a link to a patient data table containing their risk
 #' assessments and a link to the average cutoff value matrix.
@@ -27,6 +26,7 @@ predictTree <- function(cutOff, inputData) {
 #' @param inputData the inputData / patient, that the previously calculated cutOff values are tested on (type: matrix)
 #'
 #' @return result, variable result with its links to the cutOff matrix and predicted patient information
+#' @export
 
 predictTreeRec <- function(cutOff, inputData) {
   #creates a matrix with cutOff values, given to the function

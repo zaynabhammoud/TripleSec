@@ -2,8 +2,8 @@
 % Please edit documentation in R/prepareData.R
 \name{prepareData}
 \alias{prepareData}
-\title{prepareData
-This function transforms the given data into a data frame containing only the columns necessary for the TripleSec algorithm, therefor for the risk assessment.}
+\title{This function transforms the given data into a data frame containing only
+the columns necessary for the TripleSec algorithm, therefor for the risk assessment.}
 \usage{
 prepareData(data, firstFeature, featureList)
 }
@@ -18,6 +18,6 @@ prepareData(data, firstFeature, featureList)
 inputData, data table including only all relevant information for the Triple Sec algorithm
 }
 \description{
-prepareData
-This function transforms the given data into a data frame containing only the columns necessary for the TripleSec algorithm, therefor for the risk assessment.
+This function transforms the given data into a data frame containing only
+the columns necessary for the TripleSec algorithm, therefor for the risk assessment.
 }

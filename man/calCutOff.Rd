@@ -2,7 +2,12 @@
 % Please edit documentation in R/calCutOff.R
 \name{calCutOff}
 \alias{calCutOff}
-\title{calCutOff}
+\title{This function is used to calculate the cut off values for low-risk and
+high-risk groups. The values are calculated by the proportion between
+converters with a value and all patients having this certain value
+corresponding with the given pHigh and pLow values. For each feature cutoff
+calculation all patients that have not been categorized into the high or low
+risk categories will be used.}
 \usage{
 calCutOff(inputData, pHigh, pLow)
 }

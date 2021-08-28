@@ -2,8 +2,7 @@
 % Please edit documentation in R/pruneTree.R
 \name{pruneTree}
 \alias{pruneTree}
-\title{pruneTree
-This function divides the given input data frame into training and test data.
+\title{This function divides the given input data frame into training and test data.
 It calls the function \code{\link{calCutOff}} for the training data, which
 returns a matrix containing the calculated cut off values. Using this matrix
 and the test data, pruneTree then calls \code{\link{predictTree}} for the
@@ -23,7 +22,6 @@ pruneTree(inputData, pHigh, pLow)
 result, a variable with a link to the average cutoff values for each feature and a table data with the patients and feature and their risk assessment
 }
 \description{
-pruneTree
 This function divides the given input data frame into training and test data.
 It calls the function \code{\link{calCutOff}} for the training data, which
 returns a matrix containing the calculated cut off values. Using this matrix
