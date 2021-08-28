@@ -10,11 +10,11 @@ The categories are defined by cutoff values of the biomarkers. These cutoff valu
 
 The user defined risk-thresholds, pHigh and pLow, are given to the algorithm. They present the percentage of patients which are supposed to have a certain value >=x/ <=x to determin the cutoff values.
 
-![alt text](https://github.com/zaynabhammoud/TripleSec/blob/KAP/img/principle.png "principle") %picture
+![alt text](https://github.com/zaynabhammoud/TripleSec/blob/KAP/img/principle.png "principle")
 
 This calculation is repeated for each biomarker given from the user, filtering out the patients which have been categorized into high or low risk, therefor minimizing the amount of patients the algorithm categorizes as indiscriminate ("unknown risk").
 
-![alt text](https://github.com/zaynabhammoud/TripleSec/blob/KAP/img/repeat.png "repeat") %picture
+![alt text](https://github.com/zaynabhammoud/TripleSec/blob/KAP/img/repeat.png "repeat")
 
 The algorithm is made up of four functions:
 [pruneTree](https://github.com/zaynabhammoud/TripleSec/blob/KAP/R/pruneTree.R) , 
