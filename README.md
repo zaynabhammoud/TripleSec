@@ -39,7 +39,6 @@ additional function: [prepareData](https://github.com/zaynabhammoud/TripleSec/bl
 
 | Function |Description|
 | --------------- |-----------|
-
 |`pruneTree(inputData, pHigh, pLow)`|This function divides the given input data frame into training and test data. It calls the function calCutOff for the training data, which returns a matrix containing the calculated cut off values. Using this matrix and the test data, pruneTree then calls predictTree for the test data. predictTree returns the risk assessment for the test data to pruneTree.|
 |`calCutOff(inputData, pHigh, pLow)`|This function is used to calculate the cut off values for low-risk and high-risk groups. <br/>The values are calculated by the proportion between converters with a value and all patients having this certain value corresponding with the given pHigh and pLow values. For each feature cutoff calculation all patients that have not been categorized into the high or low risk categories will be used.|
 |`predictTree(cutoffValues, inputData)`| This function calls the recursive function predictTreeRec. The function returns a variable with a link to a patient data table containing their risk assessments and a link to the average cutoff value matrix.|
