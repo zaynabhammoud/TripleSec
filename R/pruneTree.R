@@ -1,8 +1,7 @@
 #' This function divides the given input data frame into training and test data.
 #' It calls the function \code{\link{calCutOff}} for the training data, which
 #' returns a matrix containing the calculated cut off values. Using this matrix
-#' and the test data, pruneTree then calls \code{\link{predictTree}} for the
-#' test data. \code{\link{predictTree}} returns the risk assessment for the test
+#' and the test data, pruneTree then calls \code{\link{predictTree}}. \code{\link{predictTree}} returns the risk assessment for the test
 #' data to pruneTree.
 #'
 #' @param inputData input data table, given by the user (shoud be a data frame)
