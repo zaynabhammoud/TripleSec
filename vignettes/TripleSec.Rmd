@@ -18,22 +18,31 @@ knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
 ```
  
 ## Introduction
-In a day and age, where more data per patient is collected and has to be evaluated, health care providers are starting to rely on clinical decision support systems (CDSS). The CDSS support health care providers by sifting through the patient data and suggesting further steps of treatment depended upon evidence based clinical guidelines [1]. 
+In a day and age, where more data per patient is collected and has to be evaluated, health care providers are starting to rely on clinical decision support systems (CDSS). The systems support health care providers by sifting through the patient data and suggesting further steps of treatment depended upon evidence based clinical guidelines [1]. 
 
-The Triple Sec Algorithm is a clinical support algorithm for risk assessment of Alzheimer's disease (AD). 
+The Triple Sec Algorithm is a clinical support algorithm for risk assessment of Alzheimer's disease (AD), which is the most common cause of a decline in mental ability, dementia [2]. 
 
-AD is the most common cause of a decline in mental ability [2]. It is a highly complex disease that surfaces differently with each patient. After it becomes visible it is hard to treat, so an early diagnosis and early treatment increases the chances of the efficiency of the treatment [3]. According to current statistics [4] over 50 million people are living with a decline in mental abilities, dementia, today and a lot of them have not been diagnosed. Statistics estimate that someone in the world develops dementia every 3.2 seconds, leading to about 10 million new dementia cases each year [4]. Due to the number of cases there is an urgent need for early and reliable diagnosis. 
+Dementia is a general term, which is used to classify a group of neurodegenerative disease patterns [3]. These diseases are classified by a general decline in mental abilities caused by changes of the brain. The cause for the changes varies between the diseases though symptoms usually include problems with language, mood changes, disorientation and memory loss [3] which are often mistaken for normal aging due to the fact that most neurodegenerative diseases, including AD, are more common in patients over 65 years of age [4].
 
-The problem with neurological diseases is the incomplete knowledge of them and the lacking consistency between different clinical, laboratory and imaging findings. For the task of singling out affected individuals with confidence we propose the created Triple Seq algorithm, which identifies patients dependent on user given risk thresholds by linking several predictors to the diagnostic procedure which are optimal to determine the given risk level, therefore categorizing the patients into risk categories dependent on their neurological symptoms. These categories, high risk, low risk and indiscriminate, represent the risk of the patient progressing to Alzheimer's disease, dependent on the given biomarker values in the completed examinations. The categories are defined by cutoff values of the biomarkers. These cutoff values are calculated dependent on user defined risk-threshold and ratio of patients. The algorithm allows healthcare providers to justify more invasive or more expensive treatment options for high risk converters [5]. 
+Alzheimer's disease is a highly complex disease which causes changes in the brain on a cellular and structural level. These changes can occur years before the first symptoms are visible [3]. The changes in the brain are irreversible, nor is the progression of AD stop able, though the treatments available today could temporarily improve symptoms [5]. To improve the patients life quality as much and for as long as possible an early diagnosis is critical. Studies have also shown that early diagnosis and therefor early treatment increases the chances of the efficiency of the treatment [6]. 
+
+According to current statistics [7] over 50 million people are living with dementia today and a lot of them have not been diagnosed. Statistics estimate that someone in the world develops dementia every 3.2 seconds, leading to about 10 million new dementia cases each year [7]. Due to the growing and aging population demiological studies suggest the number of worldwide dementia patients will increase up to over 130 million in 2050 [4].
+
+Due to the number of cases there is an urgent need for early and reliable diagnosis. The problem with this is that the cause of Alzheimer's disease, thus the reason why the patients brain changes on a cellular and structural level is unknown. An additional problem is that the changes can only scarcely be detected without invasive and costly procedures due to the lacking consistency between different clinical, laboratory and imaging findings. For the task of singling out affected individuals with confidence we propose the created Triple Seq algorithm, which identifies patients dependent on user given risk thresholds by linking several predictors to the diagnostic procedure which are optimal to determine the given risk level, therefore categorizing the patients into risk categories dependent on their neurological symptoms. These categories, high risk, low risk and indiscriminate, represent the risk of the patient progressing to Alzheimer's disease, dependent on the given biomarker values in the completed examinations. The categories are defined by cutoff values of the biomarkers. These cutoff values are calculated dependent on user defined risk-threshold and ratio of patients. The algorithm allows healthcare providers to justify more invasive or more expensive treatment options for high risk converters [8]. 
 
 ## Alzheimer
-Alzheimer's disease (AD) is a neurodegenerative disease and cause of dementia [2,6]. 
 
-The term dementia describes a group of neurodegenerative symptoms concerning memory, language usage and orientation. There are several different forms of dementia and several different diseases that cause it, though AD is by far the most common accounting for 60-80% of the cases [2]. The course of progression of AD is usually categorized in three stages, early or mild, middle or moderate, and late or severe, with a continually decrease in cognitive and functional capabilities ending in the patients death [6]. Even though the disease affects so many people and death is certain, the cause is still unclear. There are various hypotheses ranging from genetic mutations to chronic inflammations to protein abnormalities [6]. The biggest risk factor is age, which makes the diagnosis that much harder as the first signs of AD, such as short term memory loss and subtle problems with attentiveness, planning, abstract thinking and flexibility, are often mistaken for normal aging [7].
+"A degenerative disease of the brain characterized by the insidious onset of dementia. Impairment of memory, judgment, attention span, and problem solving skills are followed by severe apraxias and a global loss of cognitive abilities. [...]" - ICD 10 definition of Alzheimer [9]
+
+Dementia is a general term, which is used to classify a group of neurodegenerative symptoms concerning memory, language usage, attentiveness and orientation [2,3]. The disease patterns lead to a significant impairment of everyday activities, causing patients to rely on others [3,4]. 
+
+The diseases which evoke dementia are caused by brain changes on the cellular level leading to structural changes of the brain. These transformations are often caused by accumulations of misfolded, disease-specific proteins, though there are histopathological characteristic overlaps in many diseases [3]. 
+
+Alzheimer's disease (AD) is by far the most common form of demetia accounting for 60-80% of the cases [2]. The course of progression of AD is usually categorized in three stages, early or mild, middle or moderate, and late or severe, with a continually decrease in cognitive and functional capabilities ending in the patients death [4]. Even though the disease affects so many people and death is certain, the cause is still unclear. There are various hypotheses ranging from genetic mutations to chronic inflammations to protein abnormalities [5]. The biggest risk factor is age, which makes the diagnosis that much harder as the first signs of AD, such as short term memory loss and subtle problems with attentiveness, planning, abstract thinking and flexibility, are often mistaken for normal aging [z].
 
 ### Diagnosis
  
- ???
+--> DIFFICULT
 
 ## Triple Sec 
 
@@ -158,24 +167,34 @@ The function requires the following arguments:
 
 2. Dementia vs. Alzheimer’s Disease: What is the Difference? [Internet]. Alzheimer’s Disease and Dementia. [cited 12. August 2021]. available on: https://alz.org/alzheimers-dementia/difference-between-dementia-and-alzheimer-s
 
-3. Alzheimer verstehen [Internet]. [cited 12. August 2021]. available on: https://www.alzheimer.de/
+3. Sturm D, Biesalski A-S, Höffken O, Herausgeber. Neurologische Pathophysiologie: Ursachen und Mechanismen neurologischer Erkrankungen [Internet]. Berlin, Heidelberg: Springer Berlin Heidelberg; 2019 [cited 29. August 2021]. available on: http://link.springer.com/10.1007/978-3-662-56784-5
 
-4. ADI - Dementia statistics [Internet]. [cited 12. August 2021]. available on: https://www.alzint.org/about/dementia-facts-figures/dementia-statistics/
+4. Frost C. Molecular Dynamics Simulation: Applications from Alzheimer’s Disease to Photopharmacology. :208 
 
-
-5. Early probability-driven prediction of disease progression: a new algorithm applied to Alzheimers disease. :13. 
-
-6. Alzheimer-Krankheit. In: Wikipedia [Internet]. 2021 [cited 19. August 2021]. available at: https://de.wikipedia.org/w/index.php?title=Alzheimer-Krankheit&oldid=214843556
-
-7. What is Alzheimer’s? [Internet]. Alzheimer’s Disease and Dementia. [zitiert 19. August 2021]. Verfügbar unter: https://alz.org/alzheimers-dementia/what-is-alzheimers
-
-8. Ren J. Automated Detection of Early-Stage Alzheimer’s Disease. :94. 
-
-9. Frost C. Molecular Dynamics Simulation: Applications from Alzheimer’s Disease to Photopharmacology. :208 
-
-10. Sturm D, Biesalski A-S, Höffken O, Herausgeber. Neurologische Pathophysiologie: Ursachen und Mechanismen neurologischer Erkrankungen [Internet]. Berlin, Heidelberg: Springer Berlin Heidelberg; 2019 [cited 29. August 2021]. available on: http://link.springer.com/10.1007/978-3-662-56784-5
+5. Alzheimer-Krankheit. In: Wikipedia [Internet]. 2021 [cited 19. August 2021]. available at: https://de.wikipedia.org/w/index.php?title=Alzheimer-Krankheit&oldid=214843556
 
 
-11. HealthITSecurity. Understanding the Basics of Clinical Decision Support Systems [Internet]. HealthITAnalytics. 2017 [cited 29. August 2021]. available on: https://healthitanalytics.com/features/understanding-the-basics-of-clinical-decision-support-systems
+6. Alzheimer verstehen [Internet]. [cited 12. August 2021]. available on: https://www.alzheimer.de/
+
+7. ADI - Dementia statistics [Internet]. [cited 12. August 2021]. available on: https://www.alzint.org/about/dementia-facts-figures/dementia-statistics/
+
+
+8. Early probability-driven prediction of disease progression: a new algorithm applied to Alzheimers disease. :13. 
+
+9. 2021 ICD-10-CM Codes G30*: Alzheimer’s disease [Internet]. [cited 30. August 2021]. available at: https://www.icd10data.com/ICD10CM/Codes/G00-G99/G30-G32/G30-
+
+z. What is Alzheimer’s? [Internet]. Alzheimer’s Disease and Dementia. [zitiert 19. August 2021]. Verfügbar unter: https://alz.org/alzheimers-dementia/what-is-alzheimers
+
+10  . Ren J. Automated Detection of Early-Stage Alzheimer’s Disease. :94. 
+
+
+
+
+11. Sperling RA, Aisen PS, Beckett LA, Bennett DA, Craft S, Fagan AM, u. a. Toward defining the preclinical stages of Alzheimer’s disease: Recommendations from the National Institute on Aging-Alzheimer’s Association workgroups on diagnostic guidelines for Alzheimer’s disease. Alzheimers Dement. May 2011;7(3):280–92. 
+
+
+
+
+12. HealthITSecurity. Understanding the Basics of Clinical Decision Support Systems [Internet]. HealthITAnalytics. 2017 [cited 29. August 2021]. available on: https://healthitanalytics.com/features/understanding-the-basics-of-clinical-decision-support-systems
 
 
