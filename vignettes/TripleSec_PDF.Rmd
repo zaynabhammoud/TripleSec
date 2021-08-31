@@ -6,7 +6,7 @@ author:
   affiliation: University of Augsburg
 date: "`r Sys.Date()`"
 output: pdf_document
-linestretch: 1.1
+linestretch: 1.2 
 fontsize: 11
 vignette: >
   %\VignetteIndexEntry{TripleSec PDF Vignette}
@@ -17,6 +17,7 @@ vignette: >
 ```{r, include=FALSE}
 knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
 ```
+ 
  
 ## Introduction
 In a day and age, where more data per patient is collected and has to be evaluated, health care providers are starting to rely on clinical decision support systems (CDSS). The systems support health care providers by sifting through the patient data and suggesting further steps of treatment depended upon evidence based clinical guidelines [1]. 
@@ -53,12 +54,12 @@ The health care professionals are left with an exclusion procedure by doing thes
 
 ## Triple Sec 
 
-For the task of singling out patients that are affected by Alzheimer's disease with confidence we propose the created Triple Seq algorithm, which is a clinical support algorithm. It identifies patients by creating links between the preformed neurological and image test by means of a user given risk thresholds by linking several predictors to the diagnostic procedure which are optimal to determine the given risk level. 
+For the task of selecting patients that are affected by Alzheimer's disease with confidence we propose the created Triple Seq algorithm, which is a clinical support algorithm. It identifies patients by creating links between the preformed neurological and image test by means of a user given risk thresholds by linking several predictors to the diagnostic procedure which are optimal to determine the given risk level. 
 
 The biomarker values resulting from the diagnostic procedures are the base for the designated risk levels which are categorized into three different categories. These categories are high risk, low risk and indiscriminate. The biomarker values are classified based on cut off values which are calculated dependent on user defined risk-threshold and ratio of patients. The algorithm allows healthcare providers to justify more costly or invasive treatment options for high risk converters [8].
  
 ### Algorithm flow
-The TripleSec algorithm categorizes the patients into three categories depended upon their biomarker values. The user provides the algorithm with a data table including the patients which are supposed to be assessed and the biomarkers as well as two risk-threshold values, pHigh and pLow. The algorithm processes to iterate through all patients using all but one patient to calculate the cut off values and assesing the risk of conversion of the last patient. 
+The TripleSec algorithm categorizes the patients into three categories depended upon their biomarker values. The user provides the algorithm with a data table including the patients which are supposed to be assessed and the biomarkers as well as two risk-threshold values, pHigh and pLow. The algorithm proceeds to iterate through all patients using all but one patient to calculate the cut off values and assesing the risk of conversion of the last patient. 
 The calculation of the cutoff values is based upon the user given risk-threshold, pHigh and pLow. They represent the percentage of patients which are supposed to have a certain biomarker larger or equal to x (pHigh) or smaller or equal to x (pLow). 
 During each iteration the biomarker value is decreased (pHigh) or increased (pLow) by 5% of the highest (pHigh) or lowest (pLow) value. The biomarker value which is the first value upon which the percentage of patients crosses the risk-threshold is used as the cut off value (cutHigh, cutLow) for that particular biomarker.
 ```{r, echo=FALSE, out.width="100%"}
@@ -69,13 +70,12 @@ This cut off value calculation is repeated for each biomarker given from the use
 knitr::include_graphics("img/repeat.png")
 ```
 
- 
+
 ### Preinstallation
 TripleSec depends on one package. 
 [readr](https://cran.r-project.org/web/packages/readr/index.html)
 
-Please ensure to install the readr package before using the TripleSec package.
-
+Please ensure to install the readr package before using the TripleSec package to ensure the data file used as inputData can be processed. 
 
 ### Installation via GitHub
 ```{r setup, eval=FALSE}
@@ -91,7 +91,7 @@ library(TripleSec)
 
 This function divides the given input data frame into training and test data. All patients but one are used as training data and are used in the function calCutOff, which returns a matrix containing the calculated cut off values. Using this matrix and the test patient, pruneTree then calls predictTree. This function asseses the risk of conversion for the test patient. 
 
-The function pruneTree returns a variable result with a link to a table containing the average cutoff values for each feature and a data table with the patients and feature and their risk assessment, once it has iterated through all input data and using each patient as a test patient.
+The function pruneTree returns a variable result with a link to a table containing the average cutoff values for each feature and a data table with the patients and feature and their risk assessment, once it has iterated through all input data and using each patient as a test patient. The risk assessment is an additional column for each biomarker which is added in the function with the values 1 for a high conversion risk and 0 otherwise.
 
 The function requires the following arguments:
 
@@ -165,36 +165,64 @@ The function requires the following arguments:
 - **firstFeature** - The name of column containing the feature data which is most relevant. 
 - **featureList** - A list contaning all column names of the features which the algorithm is supposed to work with.
 
+***Example***
+```{r, eval=FALSE}
+inputData <- prepareData(dataFile.csv, "adasCog", c("fdgPet, p_tau"))
+```
+
 
 ### Testing
 
+The TripleSec algorithm was tested with a csv data file containing data of 144 individuals. 
 
-### Results
+```{r, echo=FALSE, out.width="100%"}
+knitr::include_graphics("img/data.png")
+```
 
-\newpage
+Using the function [prepareData](https://github.com/zaynabhammoud/TripleSec/blob/KAP/R/prepareData.R) with the csv file, firstFeature equaling "adasCog" and the featureList being c("fdgPet", "p_tau") the csv file was transformed into a data frame which then was used as inputData for pruneTree. 
+
+
+```{r}
+library(readr)
+library(TripleSec)
+dataAD <- read_csv("predictAD.csv")
+firstFeature <- "adasCog"
+featureList <- c("fdgPet", "p_tau")
+inputData <- prepareData(dataAD, firstFeature, featureList)
+pHigh <- 0.8 
+pLow <- 0.2
+result <- pruneTree(inputData, pHigh, pLow)
+print(result$cutOff)
+print(result$data)
+```
+
 ## References
 1. CDC. How to Implement Clinical Decision Support Systems [Internet]. Centers for Disease Control and Prevention. 2021 [cited 12. August 2021]. available on: https://www.cdc.gov/dhdsp/pubs/guides/best-practices/clinical-decision-support.htm
 
 2. Dementia vs. Alzheimer’s Disease: What is the Difference? [Internet]. Alzheimer’s Disease and Dementia. [cited 12. August 2021]. available on: https://alz.org/alzheimers-dementia/difference-between-dementia-and-alzheimer-s
 
-3. Alzheimer verstehen [Internet]. [cited 12. August 2021]. available on: https://www.alzheimer.de/
+3. Sturm D, Biesalski A-S, Höffken O, Herausgeber. Neurologische Pathophysiologie: Ursachen und Mechanismen neurologischer Erkrankungen [Internet]. Berlin, Heidelberg: Springer Berlin Heidelberg; 2019 [cited 29. August 2021]. available on: http://link.springer.com/10.1007/978-3-662-56784-5
 
-4. ADI - Dementia statistics [Internet]. [cited 12. August 2021]. available on: https://www.alzint.org/about/dementia-facts-figures/dementia-statistics/
+4. Frost C. Molecular Dynamics Simulation: Applications from Alzheimer’s Disease to Photopharmacology. :208 
 
-
-5. Early probability-driven prediction of disease progression: a new algorithm applied to Alzheimers disease. :13. 
-
-6. Alzheimer-Krankheit. In: Wikipedia [Internet]. 2021 [cited 19. August 2021]. available at: https://de.wikipedia.org/w/index.php?title=Alzheimer-Krankheit&oldid=214843556
-
-7. What is Alzheimer’s? [Internet]. Alzheimer’s Disease and Dementia. [zitiert 19. August 2021]. Verfügbar unter: https://alz.org/alzheimers-dementia/what-is-alzheimers
-
-8. Ren J. Automated Detection of Early-Stage Alzheimer’s Disease. :94. 
-
-9. Frost C. Molecular Dynamics Simulation: Applications from Alzheimer’s Disease to Photopharmacology. :208 
-
-10. Sturm D, Biesalski A-S, Höffken O, Herausgeber. Neurologische Pathophysiologie: Ursachen und Mechanismen neurologischer Erkrankungen [Internet]. Berlin, Heidelberg: Springer Berlin Heidelberg; 2019 [cited 29. August 2021]. available on: http://link.springer.com/10.1007/978-3-662-56784-5
+5. Alzheimer-Krankheit. In: Wikipedia [Internet]. 2021 [cited 19. August 2021]. available at: https://de.wikipedia.org/w/index.php?title=Alzheimer-Krankheit&oldid=214843556
 
 
-11. HealthITSecurity. Understanding the Basics of Clinical Decision Support Systems [Internet]. HealthITAnalytics. 2017 [cited 29. August 2021]. available on: https://healthitanalytics.com/features/understanding-the-basics-of-clinical-decision-support-systems
+6. Alzheimer verstehen [Internet]. [cited 12. August 2021]. available on: https://www.alzheimer.de/
+
+7. ADI - Dementia statistics [Internet]. [cited 12. August 2021]. available on: https://www.alzint.org/about/dementia-facts-figures/dementia-statistics/
+
+
+8. Early probability-driven prediction of disease progression: a new algorithm applied to Alzheimers disease. :13. 
+
+9. 2021 ICD-10-CM Codes G30*: Alzheimer’s disease [Internet]. [cited 30. August 2021]. available at: https://www.icd10data.com/ICD10CM/Codes/G00-G99/G30-G32/G30-
+
+10. What is Alzheimer’s? [Internet]. Alzheimer’s Disease and Dementia. [cited 19. August 2021]. available at: https://alz.org/alzheimers-dementia/what-is-alzheimers
+
+11. Ren J. Automated Detection of Early-Stage Alzheimer’s Disease. :94. 
+
+12. Sperling RA, Aisen PS, Beckett LA, Bennett DA, Craft S, Fagan AM, u. a. Toward defining the preclinical stages of Alzheimer’s disease: Recommendations from the National Institute on Aging-Alzheimer’s Association workgroups on diagnostic guidelines for Alzheimer’s disease. Alzheimers Dement. May 2011;7(3):280–92. 
+
+13. HealthITSecurity. Understanding the Basics of Clinical Decision Support Systems [Internet]. HealthITAnalytics. 2017 [cited 29. August 2021]. available on: https://healthitanalytics.com/features/understanding-the-basics-of-clinical-decision-support-systems
 
 
