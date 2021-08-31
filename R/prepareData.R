@@ -24,7 +24,7 @@ prepareData <- function(data, firstFeature, featureList){
   #for loop adding a column for each given feature in the feature list
   for(i in 1:length(featureList)){
     #add a column for the i-th feature in the list
-    inputDataAll <- cbind(inputData, data[,which(colnames(data) == featureList[i])])
+    inputData <- cbind(inputData, data[,which(colnames(data) == featureList[i])])
   }
   #return the created inputData data frame for further usage
   return(inputData)

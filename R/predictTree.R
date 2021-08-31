@@ -6,6 +6,7 @@
 #'@param inputData the inputData / patient, that the previously calculated cutOff values are tested on (type: matrix)
 #'
 #'@return result, variable result with its links to the cutOff matrix and predicted patient information
+#'@export
 
 
 predictTree <- function(cutOff, inputData) {
