@@ -1,5 +1,5 @@
 ---
-title: "TripleSec_PDF"
+title: "TripleSec"
 author:
   -name: Samantha Cramer
   email: samantha.cramer@protonmail.com
