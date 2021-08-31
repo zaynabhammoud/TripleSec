@@ -18,17 +18,17 @@ knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
 ```
  
 ## Introduction
-In a day and age, where more data per patient is collected and has to be evaluated, health care providers are starting to rely on clinical decision support systems (CDSS). The systems support health care providers by sifting through the patient data and suggesting further steps of treatment depended upon evidence based clinical guidelines [1]. 
+In a day and age, where more data per patient is collected and has to be evaluated, health care providers are starting to rely on clinical decision support systems (CDSS). The systems support health care providers by sifting through the patient data and suggesting further steps of treatment depending on evidence based clinical guidelines [1]. 
 
 The Triple Sec Algorithm is a clinical support algorithm for risk assessment of Alzheimer's disease (AD), which is the most common cause of a decline in mental ability, dementia [2]. 
 
-Dementia is a general term, which is used to classify a group of neurodegenerative disease patterns [3]. These diseases are classified by a general decline in mental abilities caused by changes of the brain. The cause for the changes varies between the diseases though symptoms usually include problems with language, mood changes, disorientation and memory loss [3] which are often mistaken for normal aging due to the fact that most neurodegenerative diseases, including AD, are more common in patients over 65 years of age [4].
+Dementia is a general term, which is used to classify a group of neurodegenerative disease patterns [3]. These diseases are classified by a general decline in mental abilities caused by changes of the brain. The cause for the changes varies between the diseases, though symptoms usually include problems with language, mood changes, disorientation and memory loss [3], which are often mistaken for normal aging due to the fact that most neurodegenerative diseases, including AD, are more common in patients over 65 years of age [4].
 
-Alzheimer's disease is a highly complex disease which causes changes in the brain on a cellular and structural level. These changes can occur years before the first symptoms are visible [3]. The changes in the brain are irreversible, nor is the progression of AD stop able, though the treatments available today could temporarily improve symptoms [5]. To improve the patients life quality as much and for as long as possible, an early diagnosis is critical. Studies have also shown that early diagnosis and therefor early treatment increases the chances of the efficiency of the treatment [6]. 
+Alzheimer's disease is a highly complex disease, which causes changes in the brain on a cellular and structural level. These changes can occur years before the first symptoms are visible [3]. The changes in the brain are irreversible, nor is the progression of AD stoppable, though the treatments available today could temporarily improve symptoms [5]. To improve the patients life quality as much and for as long as possible, an early diagnosis is critical. Studies have also shown that early diagnosis, and therefore early treatment, increases the chances of the efficiency of the treatment [6]. 
 
 According to current statistics over 50 million people are living with dementia today and a lot of them have not been diagnosed. Statistics estimate that someone in the world develops dementia every 3.2 seconds, leading to about 10 million new dementia cases each year [7]. Due to the growing and aging population demiological studies suggest the number of worldwide dementia patients will increase to over 130 million in 2050 [4].
 
-Due to the number of cases there is an urgent need for early and reliable diagnosis. The problem with this is that the cause of Alzheimer's disease, thus the reason why the patients brain changes on a cellular and structural level is unknown. An additional problem is that the changes can only scarcely be detected without invasive and costly procedures due to the lacking consistency between different clinical, laboratory and imaging findings. For the task of singling out affected individuals with confidence we propose the created Triple Seq algorithm, which identifies patients dependent on user given risk thresholds by linking several predictors to the diagnostic procedure which are optimal to determine the given risk level, therefore categorizing the patients into risk categories dependent on their neurological symptoms. These categories, high risk, low risk and indiscriminate, represent the risk of the patient progressing to Alzheimer's disease, dependent on the given biomarker values in the completed examinations. The categories are defined by cutoff values of the biomarkers. These cutoff values are calculated dependent on user defined risk-threshold and ratio of patients. The algorithm allows healthcare providers to justify more invasive or more expensive treatment options for high risk converters [8]. 
+Due to the number of cases there is an urgent need for early and reliable diagnosis. The problem with this is that the cause of Alzheimer's disease, thus the reason why the patients brain changes on a cellular and structural level is unknown. An additional problem is that the changes can only scarcely be detected without invasive and costly procedures due to the lacking consistency between different clinical, laboratory and imaging findings. For the task of selecting affected individuals with confidence, we propose the created Triple Seq algorithm, which identifies patients dependent on user given risk thresholds by linking several predictors to the diagnostic procedure which are optimal to determine the given risk level. Thus the patients are categorized into risk categories dependent on their neurological symptoms. These categories, high risk, low risk and indiscriminate, represent the risk of the patient progressing to Alzheimer's disease, dependent on the given biomarker values in the completed examinations. The categories are defined by cutoff values of the biomarkers. These cutoff values are calculated dependent on user defined risk-threshold and ratio of patients. The algorithm allows healthcare providers to justify more invasive or more expensive treatment options for high risk converters [8]. 
 
 ## Alzheimer
 
@@ -39,39 +39,41 @@ Dementia is a general term, which is used to classify a group of neurodegenerati
 Current statistics estimate that over 50 million people are living with dementia today , and also that someone in the world develops dementia every 3.2 seconds, which leads to an additional 10 million new dementia cases each year [7]. Due to the growing and aging population demiological studies suggest the number of worldwide dementia patients will increase to over 130 million in 2050 [4].
 
 Alzheimer's disease (AD) is by far the most common form of dementia accounting for 60-80% of the cases [2]. 
-Even though the disease affects so many people, the cause, for the deposits of misfolded proteins, is still unclear. There are various hypotheses ranging from genetic mutations to chronic inflammations [3,5]. The biggest risk factor is age as Alzheimer's is more common in patients over 65 years of age, which makes the diagnosis that much harder as the first signs of AD, such as short term memory loss and subtle problems with attentiveness, planning, abstract thinking, orientation and flexibility, are often mistaken for normal aging [10]. This intermediate stage between normal aging and an onset of dementia is called mild cognitive impairment (MCI) [3,4]. The course of progression of AD is usually categorized in three stages, early or mild, middle or moderate, and late or severe, with a continually decrease in cognitive and functional capabilities ending in the patients death [4].
+Even though the disease affects so many people, the cause for the deposits of misfolded proteins is still unclear. There are various hypotheses ranging from genetic mutations to chronic inflammations [3,5]. The biggest risk factor is age, as Alzheimer's is more common in patients over 65 years of age, which makes the diagnosis that much harder as the first signs of AD, such as short term memory loss and subtle problems with attentiveness, planning, abstract thinking, orientation and flexibility, are often mistaken for normal aging [10]. This intermediate stage between normal aging and an onset of dementia is called mild cognitive impairment (MCI) [3,4]. The course of progression of AD is usually categorized in three stages, early or mild, middle or moderate, and late or severe, with a continual decrease in cognitive and functional capabilities ending in the patients death [4].
 
 ### Diagnosis
 
-The course of Alzheimer's dementia with the depositions of protein fibrils in the affected nerve cells, typically beta-amyloid and tau protein deposits, begins 10-15 years before the first symptoms become visible. Due to the fact that the cause of Alzheimer’s disease, thus the reason why the patients brain changes on a cellular and then structural level is unknown, it is difficult to detect these changes when they happen. Therfor healthcare professionals have to act quickly when the first symptoms become visible and the patient enters the stage of MCI. Though, during the stage of MCI, the symptoms are often mistaken for normal aging thefore often not being recognized by the patient nor by their treating physician. 
+The course of Alzheimer's dementia with the depositions of protein fibrils in the affected nerve cells, typically beta-amyloid and tau protein deposits, begins 10-15 years before the first symptoms become visible. Due to the fact that the cause of Alzheimer’s disease, thus the reason why the patients brain changes on a cellular and then structural level is unknown, it is difficult to detect the changes early on. Therfore healthcare professionals have to act quickly when the first symptoms become visible and the patient enters the stage of MCI. During the stage of MCI, though the symptoms are often mistaken for normal aging thefore often not being recognized by the patient nor by their treating physician. 
 In general it is difficult to make a reliable diagnosis early on and be able to treat symptoms quickly and correctly. 
-The only reliable and definitive way to diagnosis the patients brain for protein fibrils, though this is not possible while the patient is still alive. The changes can only scarcely be detected otherwise due to the lacking consistency between different clinical, laboratory and imaging findings therefore never creating a good base for them to justify their need for invasive tests.
+The only reliable and definitive ways to diagnosis the patients brain for protein fibrils, though this is not possible while the patient is still alive. The changes can only scarcely be detected otherwise due to the lacking consistency between different clinical, laboratory and imaging findings therefore never creating a good base for them to justify their need for invasive tests.
 
 The health care professionals are left with an exclusion procedure by doing these tests and ruling out other diseases which could cause the symptoms. 
 
 
 ## Triple Sec 
 
-For the task of selecting patients that are affected by Alzheimer's disease with confidence we propose the created Triple Seq algorithm, which is a clinical support algorithm. It identifies patients by creating links between the preformed neurological and image test by means of a user given risk thresholds by linking several predictors to the diagnostic procedure which are optimal to determine the given risk level. 
+For the task of selecting patients that are affected by Alzheimer's disease with confidence we propose the created Triple Seq algorithm, which is a clinical support algorithm. It identifies patients by creating links between the preformed neurological and image test by means of a user given risk thresholds. This is done by linking several predictors to the diagnostic procedure, which are optimal to determine the given risk level. 
 
-The biomarker values resulting from the diagnostic procedures are the base for the designated risk levels which are categorized into three different categories. These categories are high risk, low risk and indiscriminate. The biomarker values are classified based on cut off values which are calculated dependent on user defined risk-threshold and ratio of patients. The algorithm allows healthcare providers to justify more costly or invasive treatment options for high risk converters [8].
+The biomarker values resulting from the diagnostic procedures are the base for the designated risk levels which are categorized into three different categories. These categories are high risk, low risk and indiscriminate. The biomarker values are classified based on cutoff values which are calculated dependent on user defined risk-threshold and ratio of patients. The algorithm allows healthcare providers to justify more costly or invasive treatment options for high risk converters [8].
  
 ### Algorithm flow
-The TripleSec algorithm categorizes the patients into three categories depended upon their biomarker values. The user provides the algorithm with a data table including the patients which are supposed to be assessed and the biomarkers as well as two risk-threshold values, pHigh and pLow. The algorithm proceeds to iterate through all patients using all but one patient to calculate the cut off values and assesing the risk of conversion of the last patient. 
+The TripleSec algorithm categorizes the patients into three categories depended upon their biomarker values. The user provides the algorithm with a data table including the patients which are supposed to be assessed and the biomarkers as well as two risk-threshold values, pHigh and pLow. The algorithm proceeds to iterate through all patients using all but one patient to calculate the cutoff values and assesing the risk of conversion of the last patient. 
 The calculation of the cutoff values is based upon the user given risk-threshold, pHigh and pLow. They represent the percentage of patients which are supposed to have a certain biomarker larger or equal to x (pHigh) or smaller or equal to x (pLow). 
-During each iteration the biomarker value is decreased (pHigh) or increased (pLow) by 5% of the highest (pHigh) or lowest (pLow) value. The biomarker value which is the first value upon which the percentage of patients crosses the risk-threshold is used as the cut off value (cutHigh, cutLow) for that particular biomarker.
+During each iteration the biomarker value is decreased (pHigh) or increased (pLow) by 5% of the highest (pHigh) or lowest (pLow) value. The biomarker value which is the first value upon which the percentage of patients crosses the risk-threshold is used as the cutoff value (cutHigh, cutLow) for that particular biomarker.
 ```{r, echo=FALSE, out.width="100%"}
 knitr::include_graphics("img/principle.png")
 ```
-This cut off value calculation is repeated for each biomarker given from the user in the data table. After each biomarker all patients that can be classified as high risk or low risk, therfor their values are higher or equal to cutHigh or below or equal to cutLow, are excluded from the next biomarker cut off caluculation. This allows the algorithm to focus on the indiscriminate ("unkown risk") section and classifying more patients during each iteration. 
+This cutoff value calculation is repeated for each biomarker given from the user in the data table. After each biomarker all patients that can be classified as high risk or low risk are excluded from the next biomarker calculation. Patients are categorized as high or low risk by their biomarker values, if their value is higher or equal to cutHigh they are classified as high risk and if their value below or equal to cutLow they are classified as low risk.  
+
+This allows the algorithm to focus on the indiscriminate ("unkown risk") section and classifying more patients during each iteration. 
 ```{r, echo=FALSE, out.width="100%"}
 knitr::include_graphics("img/repeat.png")
 ```
 
 
 ### Preinstallation
-TripleSec depends on one package. 
-[readr](https://cran.r-project.org/web/packages/readr/index.html)
+TripleSec depends on one package: 
+[readr](https://cran.r-project.org/web/packages/readr/index.html).
 
 Please ensure to install the readr package before using the TripleSec package to ensure the data file used as inputData can be processed. 
 
@@ -87,7 +89,7 @@ library(TripleSec)
 #### pruneTree
 **calculate cutOff table for given data**
 
-This function divides the given input data frame into training and test data. All patients but one are used as training data and are used in the function calCutOff, which returns a matrix containing the calculated cut off values. Using this matrix and the test patient, pruneTree then calls predictTree. This function asseses the risk of conversion for the test patient. 
+This function divides the given input data frame into training and test data. All patients but one are used as training data and are used in the function calCutOff, which returns a matrix containing the calculated cutoff values. Using this matrix and the test patient, pruneTree then calls predictTree. This function asseses the risk of conversion for the test patient. 
 
 The function pruneTree returns a variable result with a link to a table containing the average cutoff values for each feature and a data table with the patients and feature and their risk assessment, once it has iterated through all input data and using each patient as a test patient. The risk assessment is an additional column for each biomarker which is added in the function with the values 1 for a high conversion risk and 0 otherwise.
 
@@ -113,11 +115,11 @@ result <- pruneTree(inputData, pHigh, pLow)
 #### calCutOff
 **Sequential training of the algorithm**  
 
-This function is used to calculate the cut off values for low-risk and high-risk groups. 
+This function is used to calculate the cutoff values for low risk and high risk groups. 
 
 The values are calculated by the proportion between converters with a value and all patients having this certain value corresponding with the given pHigh and pLow values. For each feature cutoff calculation all patients that have not been categorized into the high or low risk categories will be used.
 
-The function calCutOff returns a variable fit, which contains links to the calculated cutOff table, filtered data and effectiveness of the cutOff values.
+The function calCutOff returns a variable fit, which contains links to the calculated cutoff table, filtered data and effectiveness of the cutoff values.
 
 The function requires the following arguments:
 
@@ -131,11 +133,11 @@ The function requires the following arguments:
 
 This function calls the recursive function predictTreeRec. The function returns a variable with a link to a patient data table containing their risk assessments and a link to the average cutoff value matrix.
 
-The function predictTree returns a variable result with its links to the cutOff matrix and predicted patient information.
+The function predictTree returns a variable result with its links to the cutoff matrix and predicted patient information.
 
 The function requires the following arguments:
 
-- **cutoffValues** - The calculated cutOff values, which are provided by the function calCutOff.
+- **cutOff values** - The calculated cutoff values, which are provided by the function calCutOff.
 - **inputData** - The inputData/the patient which is supposed to be predicted (provided by pruneTree).
 
 
@@ -144,18 +146,18 @@ The function requires the following arguments:
 
 This recursive function calculates the cutoff value for each parameter dependent upon the patient ratio, it also verifies if the model is effective (cut_high > cut_low).
 
-The function predictTreeRec returns a variable result with its links to the cutOff matrix and predicted patient information.
+The function predictTreeRec returns a variable result with its links to the cutoff matrix and predicted patient information.
 
 The function requires the following arguments:
 
-- **cutoffValues** - The calculated cutOff values, which are provided by the function calCutOff.
+- **cutOff values** - The calculated cutoff values, which are provided by the function calCutOff.
 - **inputData** - The inputData/the patient which is supposed to be predicted (provided by pruneTree).
 
 
 #### prepareData
 **Filters and transforms given data**
 
-This function transforms the given data into a data frame containing only the columns necessary for the TripleSec algorithm, therefor for the risk assessment.
+This function transforms the given data into a data frame containing only the columns necessary for the TripleSec algorithm, therefore for the risk assessment.
 
 The function requires the following arguments:
 
